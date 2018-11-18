@@ -1,0 +1,29 @@
+# 基于 mybatis-plus 的封装
+# 子模块名，not null
+module: dawn-web
+# 作者，default: null
+author: https://github.com/mgzu
+# 是否打开输出目录，default: true
+open: false
+# db
+db:
+  # not null
+  url: jdbc:mysql://127.0.0.1:3306/dawn?useUnicode=true&characterEncoding=utf8&useSSL=false
+  # not null
+  driver-name: com.mysql.jdbc.Driver
+  # not null
+  username: root
+  # not null
+  password: 123456
+table: user
+# project setting
+project:
+  # default: com.github.mgzu.dawn.common.entity.BaseEntity
+  base-entity: com.github.mgzu.dawn.common.entity.BaseEntity
+  # default: com.github.mgzu.dawn.common.controller.BaseController
+  base-controller: com.github.mgzu.dawn.common.controller.BaseController
+  package:
+    # 子模块包名，not null
+    module: web
+    # not null
+    parent: com.github.mgzu.dawn

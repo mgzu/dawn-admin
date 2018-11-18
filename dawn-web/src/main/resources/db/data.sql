@@ -1,0 +1,1 @@
+insert into USER values ('0', 'mgzu', 22 , '2931170625@qq.com');
