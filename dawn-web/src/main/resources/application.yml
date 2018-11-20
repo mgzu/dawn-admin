@@ -4,16 +4,16 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/dawn?useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: root
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:dawn
+    username: sa
     password: 123456
-    # driverClassName: org.h2.Driver
-    # url: jdbc:h2:mem:dawn
-    # username: sa
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+    # driverClassName: com.mysql.jdbc.Driver
+    # url: jdbc:mysql://127.0.0.1:3306/dawn?useUnicode=true&characterEncoding=utf8&useSSL=false
+    # username: root
     # password: 123456
-    # schema: classpath:db/schema.sql
-    # data: classpath:db/data.sql
     # 连接池配置
     druid:
       initial-size: 5
@@ -25,7 +25,7 @@ spring:
       time-between-eviction-runs-millis: 60000
       # 配置连接在池中的最小生存时间
       min-evictable-idle-time-millis: 300000
-      validation-query: select '1' from dual
+      validationQuery: select '1' from dual
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
@@ -37,10 +37,10 @@ spring:
       filters: stat
       # Spring 监控 AOP 切入点，如x.y.z.service.*,配置多个英文逗号分隔
       aop-patterns: com.github.mgzu.dawn.*.service
- # h2:
-   # console:
-     # enabled: true
-     # path: /h2-console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 mybatis-plus:
   mapper-locations: classpath*:mapper/**/*.xml
 
