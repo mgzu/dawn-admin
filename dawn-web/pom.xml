@@ -13,7 +13,6 @@
 
 	<groupId>com.github.mgzu.web</groupId>
 	<artifactId>dawn-web</artifactId>
-	<packaging>war</packaging>
 	<name>dawn-web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
@@ -26,6 +25,11 @@
 			<groupId>com.github.mgzu.common</groupId>
 			<version>${dawn.version}</version>
 		</dependency>
+		<dependency>
+			<artifactId>dawn-system</artifactId>
+			<groupId>com.github.mgzu.system</groupId>
+			<version>${dawn.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -33,7 +37,12 @@
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>spring-boot-maven-plugin</artifactId>				
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>

@@ -7,18 +7,22 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * Run before starting
- * 在启动之前运行
+ * <p>
+ * 服务启动执行
+ * </p>
+ *
  * @author https://github.com/mgzu
- * */
+ * @since 2018-11-20
+ */
 @Component
 @Order(value = 1)
 public class StartupRunner implements CommandLineRunner {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	public void run(String... args) throws Exception {
+		System.out.println(">>>>> StartupRunner start,order 1 <<<<<");
 		log.info(">>>>> StartupRunner order 1 <<<<<");
 	}
 
